@@ -1,0 +1,151 @@
+a {
+    color: #bb0511;
+    text-decoration: none;
+}
+a:hover {
+    background-color: burlywood;
+}
+#header {
+    margin-top: 30px;
+    text-align: center;
+    position: relative;
+    color: #bb0511;
+}
+
+#quick_contact {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#menu-toggle {
+    display: none; /* 初始隐藏按钮 */
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+    position: relative; /* 保证按钮在导航栏上方 */
+    z-index: 2; /* 设置较高的z-index确保按钮在导航栏上方 */
+    color: #bb0511; /* 初始颜色 */
+}
+
+.bar {
+    display: flex;
+    background-color: #bb0511; /* 桌面设备上设置白底 */
+    margin-left: 100px;
+    margin-right: 100px;
+    justify-content: space-between;
+}
+
+.bar a {
+    color: white; /* 将导航栏中的文字颜色改为白色 */
+}
+
+@media (max-width: 768px) {
+    #header {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #quick_contact {
+        flex-grow: 1; /* 使quick_contact占据可用空间 */
+        justify-content: space-between; /* 在移动设备上左右对齐内容 */
+        padding: 0 10px; /* 添加左右内边距 */
+    }
+
+    #menu-toggle {
+        display: block; /* 显示按钮 */
+        margin: 0; /* 去掉外边距 */
+        align-self: center; /* 垂直居中对齐 */
+    }
+
+    .bar {
+        display: flex; /* 确保导航栏在移动设备上是flex布局 */
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        background-color: #bb0511;
+        transform: translateX(100%); /* 初始位置在右侧 */
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        opacity: 0; /* 初始状态下不可见 */
+        position: absolute;
+        top: 0; /* 调整为从顶部开始 */
+        right: 0; /* 将位置调整为右侧 */
+        width: 100%; /* 设置宽度为100% */
+        height: 100vh; /* 设置高度为100vh */
+        z-index: 1; /* 确保导航栏在按钮下方 */
+        justify-content: flex-start;
+    }
+
+    .bar.show {
+        transform: translateX(0); /* 平移到原位置 */
+        opacity: 1; /* 使其可见 */
+    }
+
+    .bar span {
+        display: block; /* 每个导航项占据一行 */
+        margin: 1px 0; /* 减少上下间距 */
+        padding: 0; /* 移除内边距 */
+    }
+
+    .bar a {
+        color: white; /* 移动设备上将导航栏中的文字颜色改为白色 */
+    }
+
+    #menu-toggle.show {
+        color: white; /* 显示时将按钮颜色改为白色 */
+    }
+}
+
+/* Additional styling for the carousel */
+.swiper-container {
+    width: 100%;
+    height: 100vh;
+
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+}
+.slide-content {
+    color: white;
+    position: absolute;
+    z-index: 10;
+    text-align: center;
+}
+.slide-content h2 {
+    font-size: 2.5em;
+}
+.slide-content p {
+    font-size: 1.5em;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    width: auto;
+    height: auto;
+}
